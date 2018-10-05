@@ -1,0 +1,14 @@
+[ignore]
+<PROJECT_ROOT>/example/.*
+<PROJECT_ROOT>/.git/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+module.name_mapper='^@/\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
+
+[strict]
