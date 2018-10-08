@@ -15,7 +15,8 @@
     "devrun": "NODE_ENV=development nodemon src/devrun -w src --exec babel-node --presets env",
     "dev-with-tests": "npm-run-all --parallel bundle:watch test:watch",
     "pre-commit": "yarn run lint && yarn run flow --quiet && yarn run test",
-    "flow-typed": "flow-typed"
+    "flow-typed": "flow-typed",
+    "start": "node dist/main.js"
   },
   "babel": {
     "presets": [
