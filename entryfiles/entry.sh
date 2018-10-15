@@ -13,8 +13,4 @@ FILE=node_modules/jest-cli/build/watch.js
 REPLACE='s/outputStream.write\(\(_constants \|\| _load_constants\(\)\)\.CLEAR\)/true/g'
 perl -pi -e "$REPLACE" $FILE
 
-if [ "$1" = "bash" ]; then
-  bash
-else
-  yarn ${@:1}
-fi
+${@:1}
