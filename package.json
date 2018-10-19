@@ -1,6 +1,7 @@
 {
   "license": "UNLICENSED",
   "scripts": {
+    "start": "node dist/main.js",
     "serve": "nodemon dist/main.js",
     "bundle": "webpack --mode production --bail",
     "bundle:dev": "webpack --mode development --bail",
