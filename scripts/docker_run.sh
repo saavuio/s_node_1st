@@ -31,13 +31,14 @@ mkdir -p $RUN_DIR/dist
 mkdir -p $RUN_DIR/node_modules/saavu-cbin-placeholder
 
 ARGS=${@:1}
-if [ "$1" = "install" -o "$1" = "add" -o "$1" = "" ]; then
+TWO="$1 $2"
+if [ "$TWO" = "yarn add" -o "$TWO" = "yarn install" ]; then
   # working with local packages (installing deps)
   WORKDIR="/ext";
-  CMD="yarn $ARGS"
+  CMD="$ARGS"
 else
   # working with packages already in the container
-  WORKDIR="/s_node_1st";
+  WORKDIR="/s_nuxt_1st";
   CMD="/entry.sh $ARGS"
 fi
 
@@ -49,11 +50,14 @@ docker run \
   $DOCKER_PARAM_NAME \
   $DOCKER_PARAM_NET \
   $([ ! -z $PORT_TO_OPEN ] && echo "-p $PORT_TO_OPEN:$PORT_TO_OPEN") \
+  $([ -d $RUN_DIR/src ] && echo "--volume $RUN_DIR/src:/s_node_1st/src") \
+  $([ -d $RUN_DIR/dist ] && echo "--volume $RUN_DIR/dist:/s_node_1st/dist") \
   $([ -f $RUN_DIR/package.json ] && echo "--volume $RUN_DIR/package.json:/ext/package.json") \
   $([ -d $RUN_DIR/node_modules ] && echo "--volume $RUN_DIR/node_modules:/ext/node_modules") \
   $([ -f $RUN_DIR/env-development ] && echo "--volume $RUN_DIR/env-development:/s_node_1st/env-development") \
-  $([ -d $RUN_DIR/src ] && echo "--volume $RUN_DIR/src:/s_node_1st/src") \
-  $([ -d $RUN_DIR/dist ] && echo "--volume $RUN_DIR/dist:/s_node_1st/dist") \
+  $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/s_nuxt_1st/now.json") \
+  $([ -f $RUN_DIR/.gitignore ] && echo "--volume $RUN_DIR/.gitignore:/s_nuxt_1st/.gitignore") \
+  $([ -f $RUN_DIR/.npmignore ] && echo "--volume $RUN_DIR/.npmignore:/s_nuxt_1st/.npmignore") \
   --workdir $WORKDIR \
   --entrypoint sh \
   $IMAGE \
