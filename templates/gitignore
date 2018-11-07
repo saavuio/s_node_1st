@@ -1,0 +1,5 @@
+node_modules
+dependencies/s_*
+
+.vscode
+.eslintrc.js
