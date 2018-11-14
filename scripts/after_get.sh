@@ -8,10 +8,13 @@ fi
 mkdir ${PROJECT_ROOT_PATH}/src
 mkdir ${PROJECT_ROOT_PATH}/dist
 
-# scripts
-cp -a ./s_node_1st/templates/scripts ${PROJECT_ROOT_PATH}/scripts
+# link to self
 cp ./s_node_1st/templates/s_node_1st.sh ${PROJECT_ROOT_PATH}
 
+# scripts
+if [ ! -d ${PROJECT_ROOT_PATH}/scripts ]; then
+  cp -a ./s_node_1st/templates/scripts ${PROJECT_ROOT_PATH}/scripts
+fi
 # .gitignore skel
 if [ ! -f ${PROJECT_ROOT_PATH}/.gitignore ]; then
   cp ./s_node_1st/templates/gitignore ${PROJECT_ROOT_PATH}/.gitignore
