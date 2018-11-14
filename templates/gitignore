@@ -1,4 +1,6 @@
+dist
 node_modules
+node_modules_app
 dependencies/s_*
 
 .vscode
