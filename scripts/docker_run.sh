@@ -54,7 +54,7 @@ docker run \
   $([ -d $RUN_DIR/dist ] && echo "--volume $RUN_DIR/dist:/s_node_1st/dist") \
   $([ -f $RUN_DIR/package.json ] && echo "--volume $RUN_DIR/package.json:/ext/package.json") \
   $([ -d $RUN_DIR/node_modules ] && echo "--volume $RUN_DIR/node_modules:/s_node_1st/node_modules") \
-  $([ -d $RUN_DIR/node_modules_app ] && echo "--volume $RUN_DIR/node_modules_app:/ext/node_modules_app") \
+  $([ -d $RUN_DIR/node_modules_app ] && echo "--volume $RUN_DIR/node_modules_app:/ext/node_modules") \
   $([ -f $RUN_DIR/env-development ] && echo "--volume $RUN_DIR/env-development:/s_node_1st/env-development") \
   $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/s_nuxt_1st/now.json") \
   $([ -f $RUN_DIR/.gitignore ] && echo "--volume $RUN_DIR/.gitignore:/s_nuxt_1st/.gitignore") \
