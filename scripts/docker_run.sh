@@ -2,7 +2,7 @@
 RUN_DIR=$(pwd)
 cd $RUN_DIR
 
-IMAGE=saavu-local/s_node_1st
+IMAGE=saavu-local/s_node_1st_v3
 
 RUN_DIR=$(pwd)
 
@@ -28,7 +28,7 @@ fi
 # permissions will be correct when they are mounted to the
 # container.
 mkdir -p $RUN_DIR/dist
-mkdir -p $RUN_DIR/node_modules/saavu-cbin-placeholder
+mkdir -p $RUN_DIR/node_modules_app/saavu-cbin-placeholder
 
 ARGS=${@:1}
 TWO="$1 $2"
@@ -53,7 +53,8 @@ docker run \
   $([ -d $RUN_DIR/src ] && echo "--volume $RUN_DIR/src:/s_node_1st/src") \
   $([ -d $RUN_DIR/dist ] && echo "--volume $RUN_DIR/dist:/s_node_1st/dist") \
   $([ -f $RUN_DIR/package.json ] && echo "--volume $RUN_DIR/package.json:/ext/package.json") \
-  $([ -d $RUN_DIR/node_modules ] && echo "--volume $RUN_DIR/node_modules:/ext/node_modules") \
+  $([ -d $RUN_DIR/node_modules ] && echo "--volume $RUN_DIR/node_modules:/s_node_1st/node_modules") \
+  $([ -d $RUN_DIR/node_modules_app ] && echo "--volume $RUN_DIR/node_modules_app:/ext/node_modules_app") \
   $([ -f $RUN_DIR/env-development ] && echo "--volume $RUN_DIR/env-development:/s_node_1st/env-development") \
   $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/s_nuxt_1st/now.json") \
   $([ -f $RUN_DIR/.gitignore ] && echo "--volume $RUN_DIR/.gitignore:/s_nuxt_1st/.gitignore") \

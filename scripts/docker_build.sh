@@ -14,4 +14,4 @@ echo "--------------------------------------------------------------------------
 echo
 echo
 
-docker build -t saavu-local/s_node_1st --build-arg container_user_id=$(id -u) .
+docker build -t saavu-local/s_node_1st_v3 --build-arg container_user_id=$(id -u) .
