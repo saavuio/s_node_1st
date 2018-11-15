@@ -10,7 +10,7 @@ app will first run once, then webpack will build the code once, then the app
 will run again. After that it will pick up changes and rerun on edit."
 echo
 
-CONTAINER_NAME_PREFIX=example-app-name
+CONTAINER_NAME_PREFIX=example-app-api
 
 # run
 CONTAINER_NAME=$CONTAINER_NAME_PREFIX-app \
