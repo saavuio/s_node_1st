@@ -24,6 +24,13 @@ if [ ! -f $RUN_DIR/package.json ]; then
   exit 1
 fi
 
+dockerstop() {
+  docker stop -t 0 $(docker ps | grep $CONTAINER_NAME | cut -d' ' -f1) > /dev/null 2>&1
+}
+if [ -z $RUN_IN_BG ]; then
+  trap 'dockerstop' SIGINT SIGTERM EXIT
+fi
+
 # Create placeholders for folders that should exist so that
 # permissions will be correct when they are mounted to the
 # container.
