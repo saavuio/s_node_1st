@@ -47,7 +47,7 @@ if [ "$TWO" = "yarn add" -o "$TWO" = "yarn install" ]; then
   CMD="$ARGS"
 else
   # working with packages already in the container
-  WORKDIR="/s_nuxt_1st";
+  WORKDIR="/s_node_1st";
   CMD="/entry.sh $ARGS"
 fi
 
@@ -66,9 +66,9 @@ docker run \
   $([ -d $RUN_DIR/node_modules ] && echo "--volume $RUN_DIR/node_modules:/s_node_1st/node_modules") \
   $([ -d $RUN_DIR/node_modules_app ] && echo "--volume $RUN_DIR/node_modules_app:/ext/node_modules") \
   $([ -f $RUN_DIR/env-development ] && echo "--volume $RUN_DIR/env-development:/s_node_1st/env-development") \
-  $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/s_nuxt_1st/now.json") \
-  $([ -f $RUN_DIR/.gitignore ] && echo "--volume $RUN_DIR/.gitignore:/s_nuxt_1st/.gitignore") \
-  $([ -f $RUN_DIR/.npmignore ] && echo "--volume $RUN_DIR/.npmignore:/s_nuxt_1st/.npmignore") \
+  $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/s_node_1st/now.json") \
+  $([ -f $RUN_DIR/.gitignore ] && echo "--volume $RUN_DIR/.gitignore:/s_node_1st/.gitignore") \
+  $([ -f $RUN_DIR/.npmignore ] && echo "--volume $RUN_DIR/.npmignore:/s_node_1st/.npmignore") \
   --workdir $WORKDIR \
   --entrypoint sh \
   $IMAGE \
