@@ -62,7 +62,9 @@
     "setupTestFrameworkScriptFile": "<rootDir>/setup-jest.js",
     "roots": ["src/"],
     "testRegex": "(/tests/.*|(\\.|/)(test))\\.js$",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "modulePaths": ["src"],
+    "moduleDirectories": ["node_modules", "src"]
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
