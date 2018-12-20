@@ -12,6 +12,9 @@ module.exports = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  watchOptions: {
+    ignored: /node_modules/,
+  },
   module: {
     rules: [
       {

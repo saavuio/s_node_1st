@@ -69,6 +69,7 @@ docker run \
   $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/s_node_1st/now.json") \
   $([ -f $RUN_DIR/.gitignore ] && echo "--volume $RUN_DIR/.gitignore:/s_node_1st/.gitignore") \
   $([ -f $RUN_DIR/.npmignore ] && echo "--volume $RUN_DIR/.npmignore:/s_node_1st/.npmignore") \
+  $([ -f $RUN_DIR/.eslintignore ] && echo "--volume $RUN_DIR/.eslintignore:/s_node_1st/.eslintignore") \
   --workdir $WORKDIR \
   --entrypoint sh \
   $IMAGE \

@@ -20,3 +20,8 @@ echo "container started!"
 
 docker cp ${CONTAINER_NAME}:/$IMAGE_NAME/node_modules ./
 docker cp ${CONTAINER_NAME}:/$IMAGE_NAME/.eslintrc.js ./
+
+if [ $? -eq 0 ]; then
+  echo "files copied from container!"
+  docker stop ${CONTAINER_NAME}
+fi
