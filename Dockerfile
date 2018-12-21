@@ -15,6 +15,8 @@ RUN cd /s_node_1st && yarn install --network-timeout 80000
 
 RUN yarn global add package-json-merge flow-typed --network-timeout 80000
 
+RUN cd /s_node_1st && tar cjf node_modules.tar.bz2 node_modules/
+
 ADD ./base /s_node_1st
 
 ADD ./base/entryfiles/entry.sh /entry.sh
