@@ -2,7 +2,7 @@
 #!/bin/bash
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd $SCRIPT_DIR
-cd ..
+cd ../..
 
 echo
 echo
@@ -14,4 +14,7 @@ echo "--------------------------------------------------------------------------
 echo
 echo
 
-docker build -t saavu-local/s_node_1st_v3 --build-arg container_user_id=$(id -u) .
+# The reason for this complexity is that we want the container to be running
+# with the exact same user id than the host. That way, when stuff gets created
+# inside the container, the host user will own them.
+docker build -t saavu-local/s_node_1st_v4 --build-arg container_user_id=$(id -u) .
