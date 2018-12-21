@@ -7,6 +7,7 @@ fi
 # folders required
 mkdir ${PROJECT_ROOT_PATH}/src
 mkdir ${PROJECT_ROOT_PATH}/dist
+touch ${PROJECT_ROOT_PATH}/src/index.js
 
 # link to self
 cp ./s_node_1st/base/templates/s_node_1st.sh ${PROJECT_ROOT_PATH}
