@@ -9,15 +9,11 @@ RUN apt-get update && apt-get install -y vim
 
 RUN mkdir -p /s_node_1st/src && mkdir -p /ext/node_modules
 
-ADD ./base/package.json /s_node_1st
-
-RUN cd /s_node_1st && yarn install --network-timeout 80000
-
 RUN yarn global add package-json-merge flow-typed --network-timeout 80000
 
-RUN cd /s_node_1st && tar cjf node_modules.tar.bz2 node_modules/
-
 ADD ./base /s_node_1st
+
+RUN cd /s_node_1st && tar xjf node_modules.tar.bz2
 
 ADD ./base/entryfiles/entry.sh /entry.sh
 
