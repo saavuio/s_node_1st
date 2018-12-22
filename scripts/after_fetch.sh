@@ -4,6 +4,9 @@ if [ -z $PROJECT_ROOT_PATH ]; then
   exit 1
 fi
 
+git clone https://github.com/saavuio/s_node_1st_cache
+cp s_node_1st_cache/node_modules.tar.bz2 s_node_1st/base
+
 # folders required
 mkdir ${PROJECT_ROOT_PATH}/src
 mkdir ${PROJECT_ROOT_PATH}/dist

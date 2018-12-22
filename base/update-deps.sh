@@ -10,3 +10,20 @@ echo "install dependencies"
 echo
 echo "compress node_modules"
 tar cjf node_modules.tar.bz2 node_modules/
+
+echo "upload to seperate github repo"
+CACHE_DIR=node_modules_cache
+CACHE_REPO=git@github.com:saavuio/s_node_1st_cache.git
+
+if [ -d $CACHE_DIR ]; then
+  rm -rf $CACHE_DIR
+fi
+
+mkdir $CACHE_DIR
+mv node_modules.tar.bz2 $CACHE_DIR
+cd $CACHE_DIR
+git init
+git remote add origin $CACHE_REPO
+git add node_modules.tar.bz2
+git commit -m "Latest."
+git push -u -f origin master
