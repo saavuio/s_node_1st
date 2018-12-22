@@ -4,13 +4,14 @@ if [ -z $PROJECT_ROOT_PATH ]; then
   exit 1
 fi
 
+rm -rf s_node_1st_cache
 git clone https://github.com/saavuio/s_node_1st_cache
 cp s_node_1st_cache/node_modules.tar.bz2 s_node_1st/base
 
 # folders required
-mkdir ${PROJECT_ROOT_PATH}/src
-mkdir ${PROJECT_ROOT_PATH}/dist
-mkdir ${PROJECT_ROOT_PATH}/.webpack-cache
+mkdir ${PROJECT_ROOT_PATH}/src 2> /dev/null
+mkdir ${PROJECT_ROOT_PATH}/dist 2> /dev/null
+mkdir ${PROJECT_ROOT_PATH}/.webpack-cache 2> /dev/null
 touch ${PROJECT_ROOT_PATH}/src/index.js
 
 # link to self
