@@ -1,0 +1,8 @@
+Dockerfile
+base/node_modules
+base/templates
+base/update-deps.sh
+base/yarn.sh
+base/dist
+base/src
+base/tmp

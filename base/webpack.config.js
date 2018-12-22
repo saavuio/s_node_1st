@@ -7,7 +7,7 @@ const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  target: "node",
+  target: 'node',
   externals: [nodeExternals({ whitelist: ['dotenv'] })],
   output: {
     libraryTarget: 'umd',
@@ -22,8 +22,8 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          { loader: "babel-loader" },
-          { loader: "eslint-loader" },
+          { loader: 'babel-loader' },
+          { loader: 'eslint-loader' },
         ],
       },
     ]
@@ -34,6 +34,9 @@ module.exports = {
     new FlowBabelWebpackPlugin(),
     // we don't need pg-native (missing it causes an error on compile)
     new webpack.IgnorePlugin(/\.\/native/, /\/pg\//),
-    new HardSourceWebpackPlugin(),
+    new HardSourceWebpackPlugin({
+      // note: this is relative to the webpack.context (./dist)
+      cacheDirectory: '../.webpack-cache/hard-source/[confighash]',
+    }),
   ],
 }

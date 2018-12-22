@@ -7,6 +7,7 @@ fi
 # folders required
 mkdir ${PROJECT_ROOT_PATH}/src
 mkdir ${PROJECT_ROOT_PATH}/dist
+mkdir ${PROJECT_ROOT_PATH}/.webpack-cache
 touch ${PROJECT_ROOT_PATH}/src/index.js
 
 # link to self
