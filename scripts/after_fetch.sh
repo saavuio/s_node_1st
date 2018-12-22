@@ -4,8 +4,9 @@ if [ -z $PROJECT_ROOT_PATH ]; then
   exit 1
 fi
 
+VERSION=v4
 rm -rf s_node_1st_cache
-git clone https://github.com/saavuio/s_node_1st_cache
+git clone --single-branch -b $VERSION https://github.com/saavuio/s_node_1st_cache
 cp s_node_1st_cache/node_modules.tar.bz2 s_node_1st/base
 
 # folders required
