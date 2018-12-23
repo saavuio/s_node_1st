@@ -3,8 +3,15 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd $SCRIPT_DIR
 cd ..
 
+# The point of this is to make development experience better by copying files
+# out of the container (node_modules, .eslintrc.js etc). This will allow editors
+# to do realtime linting and module discovery.
+#
+# Remove .ejected to get the files out of the containers again (should not be
+# necessary unless the base template has been updated).
+
 if [ ! -f .ejected ]; then
-  echo "Fetching stuff from inside the container."
+  echo "fetching stuff from inside the container."
   IMAGE_ID=s_node_1st
   RUNNER=./${IMAGE_ID}.sh
   if [ ! -f $RUNNER ]; then exit 1; fi
@@ -31,5 +38,8 @@ if [ ! -f .ejected ]; then
   #
   touch .ejected
 fi
+
+echo "merge node_modules_app and node_modules...";
+cp -a node_modules_app/* node_modules/
 
 echo "done."

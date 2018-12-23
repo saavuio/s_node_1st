@@ -23,6 +23,7 @@ coverage
 
 # Dependency directories
 node_modules/
+node_modules.tar.bz2
 
 # Optional eslint cache
 .eslintcache
