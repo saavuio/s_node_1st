@@ -13,4 +13,4 @@ cd ..
 CONTAINER_NAME=$IDENTIFIER-app \
   NET_NAME=saavunet \
   PORT_TO_OPEN=$DEV_PORT \
-  NODE_ENV=development ./s_node_1st.sh yarn run start 
+  NODE_ENV=development ./s_node_1st.sh yarn run start
