@@ -12,7 +12,7 @@ will run again. After that it will pick up changes and rerun on edit."
 echo
 
 # run
-CONTAINER_NAME=$IDENTIFIER-app \
+CONTAINER_NAME=$IDENTIFIER-cnt \
   NET_NAME=saavunet \
   PORT_TO_OPEN=$DEV_PORT \
   NODE_ENV=development ./s_node_1st.sh yarn run dev
