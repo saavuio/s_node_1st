@@ -1,4 +1,6 @@
 src/**/*.test.js
 dist/
 node_modules/
-src/saavuevents_tmp.js
+node_modules_app/
+src/lib/tasks/templates/
+src/lib/actions/templates/
