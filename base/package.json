@@ -12,6 +12,7 @@
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watchAll",
     "lint": "eslint src/",
+    "lint:watch": "esw -w src/",
     "dev": "npm-run-all --parallel bundle:watch serve",
     "devrun": "NODE_ENV=development nodemon src/devrun -w src --exec babel-node --presets env",
     "dev-with-tests": "npm-run-all --parallel bundle:watch test:watch",
