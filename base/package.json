@@ -17,6 +17,7 @@
     "dev-with-tests": "npm-run-all --parallel bundle:watch test:watch",
     "pre-commit": "yarn run lint && yarn run flow --quiet && yarn run test",
     "flow-typed": "flow-typed",
+    "qc:watch": "npm-run-all --parallel lint:watch flow:watch",
     "start": "node dist/main.js"
   },
   "babel": {
@@ -81,6 +82,7 @@
     "eslint-loader": "2.0.0",
     "eslint-plugin-flowtype": "2.46.1",
     "eslint-plugin-import": "2.12.0",
+    "eslint-watch": "^4.0.2",
     "flow-babel-webpack-plugin": "1.1.1",
     "flow-bin": "0.68.0",
     "flow-watch": "1.1.3",
