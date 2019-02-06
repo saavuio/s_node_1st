@@ -19,8 +19,7 @@
     "dev-with-tests": "npm-run-all --parallel bundle:watch test:watch",
     "pre-commit": "yarn run lint && yarn run flow --quiet && yarn run test",
     "flow-typed": "flow-typed",
-    "qc:watch": "npm-run-all --parallel lint:watch flow:watch",
-    "start": "node dist/main.js"
+    "qc:watch": "npm-run-all --parallel lint:watch flow:watch"
   },
   "babel": {
     "presets": [
@@ -63,11 +62,18 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setup-jest.js",
-    "roots": ["src/"],
+    "roots": [
+      "src/"
+    ],
     "testRegex": "(/tests/.*|(\\.|/)(test))\\.js$",
     "testEnvironment": "node",
-    "modulePaths": ["src"],
-    "moduleDirectories": ["node_modules", "src"]
+    "modulePaths": [
+      "src"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -89,7 +95,7 @@
     "flow-bin": "0.68.0",
     "flow-watch": "1.1.3",
     "hard-source-webpack-plugin": "^0.13.1",
-    "jest": "22.4.3",
+    "jest": "23.6.0",
     "jest-fetch-mock": "1.5.0",
     "json-loader": "0.5.7",
     "node-noop": "1.0.0",
