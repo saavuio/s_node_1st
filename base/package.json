@@ -2,7 +2,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "node dist/main.js",
-    "serve": "nodemon dist/main.js",
+    "start:watch": "nodemon dist/main.js",
     "bundle": "webpack --mode production --bail",
     "bundle:dev": "webpack --mode development --bail",
     "bundle:watch": "webpack --watch -d --mode development",
@@ -13,13 +13,14 @@
     "test:watch": "NODE_ENV=test jest --watchAll",
     "lint": "eslint src/",
     "lint:watch": "esw -w src/",
-    "dev": "npm-run-all --parallel bundle:watch serve",
+    "dev": "concurrently \"yarn:bundle:watch\" \"yarn:start:watch\" --restart-tries 999 --restart-after 1000",
     "devrun": "NODE_ENV=development nodemon src/devrun -w src --exec babel-node --presets env,flow",
     "devrun-action": "NODE_ENV=development nodemon src/devrun-action -w src --exec babel-node --presets env,flow",
-    "dev-with-tests": "npm-run-all --parallel bundle:watch test:watch",
-    "pre-commit": "yarn run lint && yarn run flow --quiet && yarn run test",
+    "dev-with-tests": "concurrently \"yarn:bundle:watch\" \"yarn:test:watch\" --restart-tries 999 --restart-after 1000",
+    "qc": "yarn run lint && yarn run flow",
+    "qc:watch": "concurrently \"yarn:lint:watch\" \"yarn:flow:watch\" --restart-tries 999 --restart-after 1000",
     "flow-typed": "flow-typed",
-    "qc:watch": "npm-run-all --parallel lint:watch flow:watch"
+    "pre-commit": "yarn run lint && yarn run flow --quiet && yarn run test"
   },
   "babel": {
     "presets": [
@@ -83,6 +84,7 @@
     "babel-plugin-root-import": "6.0.0",
     "babel-preset-env": "1.6.1",
     "babel-preset-flow": "6.23.0",
+    "concurrently": "^4.1.0",
     "dotenv": "5.0.1",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "12.1.0",
@@ -99,7 +101,6 @@
     "jest-fetch-mock": "1.5.0",
     "json-loader": "0.5.7",
     "node-noop": "1.0.0",
-    "npm-run-all": "4.1.5",
     "supertest": "3.0.0",
     "webpack": "4.19.1",
     "webpack-cli": "2.0.13",
