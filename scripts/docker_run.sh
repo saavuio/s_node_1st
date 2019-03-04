@@ -54,6 +54,7 @@ fi
 docker run \
   -u $UID:$(id -g $USER) \
   -e NODE_ENV=$NODE_ENV \
+  -e PORT_TO_OPEN=$PORT_TO_OPEN \
   $([ -z $RUN_IN_BG ] && echo '--rm' || echo '-d') \
   $([ ! -z $NO_TTY ] && echo '' || echo '-it') \
   $DOCKER_PARAM_NAME \
@@ -64,6 +65,7 @@ docker run \
   $([ -d $RUN_DIR/public ] && echo "--volume $RUN_DIR/public:/s_node_1st/public") \
   $([ -f $RUN_DIR/package.json ] && echo "--volume $RUN_DIR/package.json:/ext/package.json") \
   $([ -d $RUN_DIR/.webpack-cache ] && echo "--volume $RUN_DIR/.webpack-cache:/s_node_1st/.webpack-cache") \
+  $([ -f $RUN_DIR/webpack.config.js ] && echo "--volume $RUN_DIR/webpack.config.js:/s_node_1st/webpack.config.js") \
   $([ -d $RUN_DIR/node_modules_app ] && echo "--volume $RUN_DIR/node_modules_app:/ext/node_modules") \
   $([ -f $RUN_DIR/env-development ] && echo "--volume $RUN_DIR/env-development:/s_node_1st/env-development") \
   $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/s_node_1st/now.json") \
