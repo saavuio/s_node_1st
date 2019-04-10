@@ -66,6 +66,7 @@ docker run \
   $([ -d $RUN_DIR/.webpack-cache ] && echo "--volume $RUN_DIR/.webpack-cache:/s_node_1st/.webpack-cache") \
   $([ -d $RUN_DIR/node_modules_app ] && echo "--volume $RUN_DIR/node_modules_app:/ext/node_modules") \
   $([ -f $RUN_DIR/env-development ] && echo "--volume $RUN_DIR/env-development:/s_node_1st/env-development") \
+  $([ -f $RUN_DIR/env-production ] && echo "--volume $RUN_DIR/env-production:/s_node_1st/env-production") \
   $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/s_node_1st/now.json") \
   $([ -f $RUN_DIR/.gitignore ] && echo "--volume $RUN_DIR/.gitignore:/s_node_1st/.gitignore") \
   $([ -f $RUN_DIR/.npmignore ] && echo "--volume $RUN_DIR/.npmignore:/s_node_1st/.npmignore") \
