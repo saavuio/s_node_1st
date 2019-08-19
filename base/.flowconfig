@@ -3,6 +3,7 @@
 <PROJECT_ROOT>/src/lib/tasks/templates/.*
 <PROJECT_ROOT>/example/.*
 <PROJECT_ROOT>/.git/.*
+.*\.js\.flow
 
 [include]
 

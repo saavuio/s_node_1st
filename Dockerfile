@@ -11,7 +11,7 @@ RUN if [ "$is_dev" = "true" ]; then apt-get update && apt-get install -y vim; fi
 
 RUN mkdir -p /s_node_1st/src && mkdir -p /ext/node_modules
 
-RUN yarn global add package-json-merge flow-typed --network-timeout 80000
+RUN yarn global add package-json-merge flow-typed@2.4 --network-timeout 80000
 
 ADD ./base /s_node_1st
 ADD ./scripts/entry.sh /entry.sh
