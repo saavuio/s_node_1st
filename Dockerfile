@@ -1,5 +1,5 @@
 # NOTE: needs to match base/yarn.sh
-FROM node:8.11.3
+FROM node:10.16.3
 
 ARG container_user_id
 ARG is_dev

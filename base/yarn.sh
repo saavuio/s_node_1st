@@ -15,4 +15,4 @@ docker run \
   --volume $RUN_DIR:/app \
   --workdir /app \
   --entrypoint yarn \
-  node:8.11.3 ${@:1} # NOTE: needs to match ../Dockerfile
+  node:10.16.3 ${@:1} # NOTE: needs to match ../Dockerfile
